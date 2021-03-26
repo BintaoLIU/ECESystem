@@ -30,7 +30,7 @@ namespace ECE_Testing
         public void PhoneNumOk()
         {
             clsStudent AStudent = new clsStudent();
-            long APhoneNum = 075512345678;
+            int APhoneNum = 12345678;
             AStudent.PhoneNum = APhoneNum;
             Assert.AreEqual(AStudent.PhoneNum, APhoneNum);
         }
@@ -53,6 +53,16 @@ namespace ECE_Testing
         }
 
         [TestMethod]
+        public void FindMethodOk()
+        {
+            clsStudent AStudent = new clsStudent();
+            Boolean Found = false;
+            int StudentNum = 2617175;
+            Found = AStudent.Find(StudentNum);
+            Assert.IsTrue(Found);
+        }
+
+        [TestMethod]
         public void TestStudentNumFound()
         {
             clsStudent AStudent = new clsStudent();
@@ -61,6 +71,23 @@ namespace ECE_Testing
             int StudentNo = 2617175;
             Found = AStudent.Find(StudentNo);
             if (AStudent.StudentNum != 2617175)
+            {
+                Ok = false;
+            }
+
+            Assert.IsTrue(Ok);
+        }
+
+
+        [TestMethod]
+        public void TestPhoneNumFound()
+        {
+            clsStudent AStudent = new clsStudent();
+            Boolean Found = false;
+            Boolean Ok = true;
+            int PhoneNum = 12345678;
+            Found = AStudent.Find(PhoneNum);
+            if (AStudent.PhoneNum != 12345678)
             {
                 Ok = false;
             }
